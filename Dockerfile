@@ -12,5 +12,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # 云托管容器：暴露端口、设长超时（圆桌可能分钟级）
+# 启动命令尽量扁平，避免 sh -c 嵌套转义；建表交给 FastAPI startup 事件处理
 EXPOSE 8000
-CMD ["sh", "-c", "python -c \"from app.db import Base, engine; import app.models; Base.metadata.create_all(bind=engine)\" && uvicorn app.main:app --host 0.0.0.0 --port 8000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
