@@ -1,0 +1,18 @@
+# 核心（必装）
+fastapi
+uvicorn[standard]
+sqlalchemy>=2.0
+pydantic>=2.0
+requests
+
+# 真实取数（FETCHER_MOCK=false 时安装）
+# akshare
+
+# 真实 LLM（LLM_MOCK=false 时安装）
+# openai
+
+# 缓存/队列（TCB 部署时启用）
+# redis
+
+# 报告存储到 COS（COS_BUCKET 配置后启用，给出 https 链接；否则写本地）
+# cos-python-sdk-v5

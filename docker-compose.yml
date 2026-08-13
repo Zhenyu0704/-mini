@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+    # TCB 部署时删掉 build/ports，改用云托管容器镜像 + 云数据库
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"

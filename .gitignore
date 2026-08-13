@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+*.db
+
+# 密钥（绝不入库）
+.env
+
+# 本地验证产物
+reports/
+
+# 工作区元数据
+.workbuddy/
