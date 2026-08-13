@@ -1,0 +1,8 @@
+<view class="page">
+  <view wx:for="{{list}}" wx:key="id" class="item" data-tid="{{item.task_id}}" bindtap="open">
+    <view class="t">{{item.msg_type}}</view>
+    <view class="title">{{item.title}}</view>
+    <view class="ts">{{item.ts}}</view>
+  </view>
+  <view wx:if="{{list.length===0}}" class="empty">暂无消息，盘后来看收盘诊断</view>
+</view>

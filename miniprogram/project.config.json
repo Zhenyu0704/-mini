@@ -1,0 +1,12 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "stock-roundtable",
+  "description": "股票投研圆桌小程序",
+  "appid": "wx7d3a99bc0efe1f50",
+  "setting": {
+    "es6": true,
+    "postcss": true,
+    "minified": true
+  },
+  "compileType": "miniprogram"
+}

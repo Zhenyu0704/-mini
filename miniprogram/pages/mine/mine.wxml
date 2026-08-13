@@ -1,0 +1,13 @@
+<view class="page">
+  <view class="card">
+    <view class="h">持仓导入（每行：代码,名称）</view>
+    <textarea placeholder="600519.SH,贵州茅台&#10;000001.SZ,平安银行" value="{{portfolio}}" bindinput="onPortfolio"/>
+    <button bindtap="importPortfolio">导入持仓</button>
+  </view>
+  <view class="card">
+    <view class="h">自选异动订阅</view>
+    <input placeholder="逗号分隔" value="{{symbols}}" bindinput="onSymbols"/>
+    <button bindtap="setWatch">订阅异动</button>
+    <button bindtap="authSub">授权收盘推送</button>
+  </view>
+</view>

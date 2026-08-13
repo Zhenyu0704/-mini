@@ -1,0 +1,16 @@
+<view class="page">
+  <view wx:if="{{status!=='done'}}" class="loading">圆桌讨论中…6 位专家已就位</view>
+  <block wx:else>
+    <!-- 完整报告优先用 web-view 加载 H5（需在小程序后台配置业务域名） -->
+    <web-view wx:if="{{html_url}}" src="{{html_url}}"></web-view>
+    <!-- 未配业务域名时的自绘兜底 -->
+    <view wx:else class="card">
+      <view class="h">综合视角</view>
+      <text>{{summary.view}}</text>
+      <view class="h">关键数据</view>
+      <view wx:for="{{summary.snapshot}}" wx:key="symbol">{{item.symbol}} {{item.price}} ({{item.pct}}%)</view>
+      <view class="h">立场分布</view>
+      <text>{{summary.votes}}</text>
+    </view>
+  </block>
+</view>

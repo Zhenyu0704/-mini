@@ -1,0 +1,12 @@
+<view class="page">
+  <view class="card">
+    <textarea placeholder="例如：帮我看看比亚迪 / 新能源还能追吗 / 我这几只票怎么样" value="{{query}}" bindinput="onInput"/>
+    <view class="types">
+      <view class="tag {{type==='single'?'on':''}}" data-t="single" bindtap="onType">单股</view>
+      <view class="tag {{type==='portfolio'?'on':''}}" data-t="portfolio" bindtap="onType">持仓诊断</view>
+      <view class="tag {{type==='sector'?'on':''}}" data-t="sector" bindtap="onType">板块</view>
+    </view>
+    <input placeholder="标的代码，逗号分隔（可选）" value="{{symbols}}" bindinput="onSymbols"/>
+    <button type="primary" bindtap="submit" loading="{{loading}}">发起圆桌</button>
+  </view>
+</view>
