@@ -11,7 +11,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# 云托管容器：暴露端口、设长超时（圆桌可能分钟级）
-# 启动命令尽量扁平，避免 sh -c 嵌套转义；建表交给 FastAPI startup 事件处理
-EXPOSE 8000
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# 云托管容器：主应用监听 PORT（TCB 注入，默认 8000），run.py 另在 80 端口回健康检查
+# 避免 TCB 探针端口错配导致的重启循环；建表交给 FastAPI startup 事件处理
+ENV PORT=8000
+EXPOSE 80 8000
+CMD ["python", "run.py"]
